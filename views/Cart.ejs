@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <header class="bg-white border-bottom">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <a class="navbar-brand" href="#">BookStore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="search-section text-center py-5" style="background: linear-gradient(135deg, #f5f7fa, #c3cfe2);">
+            <div class="container">
+                <h1>Find the book <br> you've been looking for</h1>
+                <div class="input-group mt-4">
+                    <input type="text" class="form-control" placeholder="Search by book title">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="books-section py-5">
+            <div class="container">
+                <div class="row">
+                    <% bookstore.forEach(function(book) { %>
+                        <div class="col-md-6 col-lg-3 mb-4">
+                            <div class="card">
+                                <img src="<%= book.image %>" class="card-img-top" alt="Book Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= book.title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= book.author %>
+                                    </p>
+                                    <p class="card-text text-muted">ISBN: <%= book.ISBN %>
+                                    </p>
+                                    <p class="card-text text-muted">Price: <%= book.price.displayValue %>
+                                    </p>
+                                    <a href="/deleteData?id=<%book._id%>" class="btn btn-outline-secondary">Delete</a>
+                                    <a href="/editData?id=<%book._id%>" class="btn btn-primary">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+            </div>
+        </section>
+        <section class="add-book-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Add A New
+                    Book</h2>
+                <form action="/insertData" method="post" class="col-6 m-auto p-5"
+                    style="background: linear-gradient(135deg, #f5f7fa, #c3cfe2);">
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="text" class="form-control" id="image" placeholder="Please insert image link">
+                    </div>
+                    <div class="form-group">
+
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Enter title">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" class="form-control" name="author" placeholder="Enter author">
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" class="form-control" name="ISBN" placeholder="Enter ISBN Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" name="price" placeholder="Enter price">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-light py-4">
+        <div class="container text-center">
+            <p>435 Tresdale Road, Entertainment District, Fictional City, XA 27402</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
