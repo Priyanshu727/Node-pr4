@@ -95,7 +95,9 @@ app.get('/', (req, res) => {
         return false;
     })
 });
-
+// ...................................
+// delete the data form book store....
+// ...................................
 app.get("/deleteData", (req, res) => {
     // let id = req.params.id
     let id = req.query.id;
@@ -110,6 +112,20 @@ app.get("/deleteData", (req, res) => {
         })
 })
 
+// '''''''''''''''''''''''''''''''''''''
+// delete data end .....................
+//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+//
+//
+//
+////////////////////////////////////////
+///////////////////////////////////////
+//
+//
+//
+// ''''''''''''''''''''''''''''''''''''''
+// adding edit data of book store........
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 app.get('/editData', (req, res) => {
     let id = req.query.id;
@@ -133,7 +149,14 @@ app.get('/editData', (req, res) => {
         return false;
     })
   })
-
+// ....................................
+// ................end....................
+// ....................................
+//
+//
+// ''''''''''''''''''''''''''''''''''''''''''''''''
+// this code is use to insert new data in bookstore
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 app.post('/insertdata', (req, res) => {
     const { image, title, author, ISBN, price } = req.body
