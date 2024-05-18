@@ -19,12 +19,12 @@ const userSchema = new mongoose.Schema({
         require: true
     },
     price: {
-        type: Number,
+        type: String,
         require: true
     },
 
 });
 
-const userDB = mongoose.model('userTbl', userSchema);
+const userDB = mongoose.model("userTbl", userSchema);
 
 module.exports = userDB;

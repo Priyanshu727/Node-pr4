@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container form-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2 class="form-title">Book Data</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="/editData/<%=data._id%>" method="post">
+
+                            <div class="form-group row">
+                                <label for="title" class="col-sm-3 col-form-label">Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="title" name="title"
+                                        placeholder="Enter book title" value="<%= data.title %>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="author" class="col-sm-3 col-form-label">Author</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="author" name="author"
+                                        placeholder="Enter book author" value="<%= data.author %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="price" class="col-sm-3 col-form-label">Price</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="price" name="price"
+                                        placeholder="Enter book price" value="<%= data.price %>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-9 offset-sm-3">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
